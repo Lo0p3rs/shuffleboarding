@@ -60,10 +60,10 @@
                   <RowConstraints maxHeight="20.0" minHeight="8.0" prefHeight="8.0" vgrow="SOMETIMES" />
               </rowConstraints>
                <children>
-                  <Button fx:id="startButton" cancelButton="true" mnemonicParsing="false" text="CLEAR (Restarts Note Selection)" textFill="#fc0000" GridPane.rowIndex="2" />
+                  <Button fx:id="startButton" cancelButton="true" mnemonicParsing="false" text="CLEAR ❌" textFill="#fc0000" GridPane.rowIndex="2" />
                   <ChoiceBox nodeOrientation="LEFT_TO_RIGHT" prefWidth="150.0" GridPane.columnIndex="3" GridPane.halignment="RIGHT" GridPane.rowIndex="2" />
                   <Button alignment="CENTER_RIGHT" mnemonicParsing="false" text="Confirm Selections ✅" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-                  <Slider blockIncrement="1.0" majorTickUnit="1.0" max="8.0" minorTickCount="0" showTickLabels="true" showTickMarks="true" snapToTicks="true" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+                  <Slider fx:id="noteSlider" blockIncrement="1.0" majorTickUnit="1.0" max="8.0" minorTickCount="0" showTickLabels="true" showTickMarks="true" snapToTicks="true" GridPane.columnIndex="2" GridPane.rowIndex="2" />
                </children>
             </GridPane>
          </children>
