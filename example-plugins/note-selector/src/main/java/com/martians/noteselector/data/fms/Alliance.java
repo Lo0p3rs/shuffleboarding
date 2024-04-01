@@ -1,4 +1,4 @@
-package edu.wpi.first.shuffleboard.plugin.base.data.fms;
+package com.martians.noteselector.data.fms;
 
 /**
  * Enumerates the possible alliance colors in a match.

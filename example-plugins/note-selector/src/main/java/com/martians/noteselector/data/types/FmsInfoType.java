@@ -1,10 +1,10 @@
-package edu.wpi.first.shuffleboard.plugin.base.data.types;
+package com.martians.noteselector.data.types;
 
 import edu.wpi.first.shuffleboard.api.data.ComplexDataType;
-import edu.wpi.first.shuffleboard.plugin.base.data.fms.Alliance;
-import edu.wpi.first.shuffleboard.plugin.base.data.fms.ControlWord;
-import edu.wpi.first.shuffleboard.plugin.base.data.fms.FmsInfo;
-import edu.wpi.first.shuffleboard.plugin.base.data.fms.MatchType;
+import com.martians.noteselector.data.fms.Alliance;
+import com.martians.noteselector.data.fms.ControlWord;
+import com.martians.noteselector.data.fms.FmsInfo;
+import com.martians.noteselector.data.fms.MatchType;
 
 import java.util.Map;
 import java.util.function.Function;

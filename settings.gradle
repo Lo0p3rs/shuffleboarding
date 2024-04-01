@@ -16,7 +16,6 @@ include "integ_test"
 include ":plugins:base"
 include ":plugins:cameraserver"
 include ":plugins:networktables"
-include ":plugins:powerup"
 
 rootProject.children.each {
     setUpChildProject(it)

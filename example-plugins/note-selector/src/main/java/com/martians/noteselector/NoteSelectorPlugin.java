@@ -10,8 +10,9 @@ import java.util.List;
 import java.util.Map;
 
 import com.martians.noteselector.widget.NoteSelector;
+import edu.wpi.first.shuffleboard.api.plugin.Requires;
 
-
+@Requires(group = "edu.wpi.first.shuffleboard", name = "Base", minVersion = "1.0.0")
 /**
  * An example plugin that provides a custom data type (a 2D point) and a simple widget for viewing such data.
  */
@@ -21,6 +22,8 @@ import com.martians.noteselector.widget.NoteSelector;
     version = "2024.3.1",
     summary = "A plugin that allows you to select notes for autonomous"
 )
+
+
 public final class NoteSelectorPlugin extends Plugin {
 
 

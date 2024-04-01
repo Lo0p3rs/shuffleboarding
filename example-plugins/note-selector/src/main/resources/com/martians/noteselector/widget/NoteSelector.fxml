@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.shape.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.text.*?>
 <?import javafx.scene.effect.*?>
@@ -14,65 +15,105 @@
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TableColumn?>
 
-<VBox fx:id="root" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="618.0" prefWidth="891.0" spacing="4" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.martians.noteselector.widget.NoteSelector">
+<VBox fx:id="root" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="450.0" prefWidth="958.0" spacing="2" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.martians.noteselector.widget.NoteSelector">
     <padding>
-        <!-- Keep a 4 pixel buffer around the widget to avoid it from feeling cramped -->
         <Insets topRightBottomLeft="4" />
     </padding>
    <children>
-      <StackPane prefHeight="150.0" prefWidth="200.0">
+      <StackPane prefHeight="444.0" prefWidth="744.0">
          <children>
-            <VBox disable="true" prefHeight="200.0" prefWidth="100.0">
+            <HBox prefHeight="282.0" prefWidth="1168.0" />
+            <VBox disable="true" prefHeight="444.0" prefWidth="909.0">
                <children>
-                  <ImageView disable="true" fitHeight="612.0" fitWidth="882.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView disable="true" fitHeight="417.0" fitWidth="778.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@2024-field.png" />
                      </image>
                   </ImageView>
                </children>
             </VBox>
-            <Button fx:id="anButton" mnemonicParsing="false" text="Amp Note" translateX="-330.0" translateY="-140.0" />
-            <Button fx:id="srnButton" layoutX="427.0" layoutY="218.0" mnemonicParsing="false" text="Source Note" translateX="-330.0" />
-            <Button fx:id="snButton" layoutX="427.0" layoutY="218.0" mnemonicParsing="false" text="Speaker Note" translateX="-180.0" translateY="-70.0" />
-            <Button fx:id="f1nButton" layoutX="416.0" layoutY="218.0" mnemonicParsing="false" text="Far 1 Note" translateX="70.0" translateY="-162.0" />
-            <Button fx:id="f2nButton" layoutX="416.0" layoutY="218.0" mnemonicParsing="false" text="Far 2 Note" translateX="70.0" translateY="-80.0" />
-            <Button fx:id="f3nButton" layoutX="416.0" layoutY="218.0" mnemonicParsing="false" text="Far 3 Note" translateX="70.0" />
-            <Button fx:id="f4nButton" layoutX="416.0" layoutY="218.0" mnemonicParsing="false" text="Far 4 Note" translateX="70.0" translateY="80.0" />
-            <Button fx:id="f5nButton" layoutX="416.0" layoutY="218.0" mnemonicParsing="false" text="Far 5 Note" translateX="70.0" translateY="162.0" />
+            <GridPane prefHeight="174.0" prefWidth="950.0">
+              <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="954.0" minWidth="10.0" prefWidth="781.0" />
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="577.0" minWidth="10.0" prefWidth="169.0" />
+              </columnConstraints>
+              <rowConstraints>
+                <RowConstraints maxHeight="391.0" minHeight="10.0" prefHeight="391.0" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="217.0" minHeight="10.0" prefHeight="53.0" vgrow="SOMETIMES" />
+              </rowConstraints>
+               <children>
+                  <TableView fx:id="noteTbl" prefHeight="357.0" prefWidth="169.0" GridPane.columnIndex="1">
+                    <columns>
+                      <TableColumn fx:id="noteNum" prefWidth="63.0" text="Note #" />
+                      <TableColumn fx:id="noteSelec" prefWidth="102.0" text="Note Selected" />
+                    </columns>
+                  </TableView>
+               </children>
+            </GridPane>
+            <Button fx:id="anButtonR" disable="true" mnemonicParsing="false" text="Amp Note" translateX="210.0" translateY="-152.0" />
+            <Button fx:id="snButtonR" disable="true" mnemonicParsing="false" text="Speaker Note" translateX="75.0" translateY="-90.0" />
+            <Button fx:id="srnButtonR" disable="true" mnemonicParsing="false" text="Source Note" translateX="210.0" translateY="-28.0" />
+            <Button fx:id="anButton" disable="true" mnemonicParsing="false" text="Amp Note" translateX="-380.0" translateY="-153.0" />
+            <Button fx:id="srnButton" disable="true" layoutX="427.0" layoutY="218.0" mnemonicParsing="false" text="Source Note" translateX="-380.0" translateY="-28.0" />
+            <Button fx:id="snButton" disable="true" layoutX="427.0" layoutY="218.0" mnemonicParsing="false" text="Speaker Note" translateX="-235.0" translateY="-88.0" />
+            <Button fx:id="f1nButton" disable="true" layoutX="416.0" layoutY="218.0" mnemonicParsing="false" text="Far 1 Note" translateX="-15.0" translateY="-170.0" />
+            <Button fx:id="f2nButton" disable="true" layoutX="416.0" layoutY="218.0" mnemonicParsing="false" text="Far 2 Note" translateX="-15.0" translateY="-100.0" />
+            <Button fx:id="f3nButton" disable="true" layoutX="416.0" layoutY="218.0" mnemonicParsing="false" text="Far 3 Note" translateX="-15.0" translateY="-28.0" />
+            <Button fx:id="f4nButton" disable="true" layoutX="416.0" layoutY="218.0" mnemonicParsing="false" text="Far 4 Note" translateX="-15.0" translateY="43.0" />
+            <Button fx:id="f5nButton" disable="true" layoutX="416.0" layoutY="218.0" mnemonicParsing="false" text="Far 5 Note" translateX="-15.0" translateY="115.0" />
+            <Rectangle arcHeight="5.0" arcWidth="5.0" height="444.0" opacity="0.84" stroke="BLACK" strokeType="INSIDE" visible="false" width="885.0" />
+            <Rectangle fx:id="coverPane" arcHeight="5.0" arcWidth="5.0" height="393.0" opacity="0.77" stroke="BLACK" strokeType="OUTSIDE" strokeWidth="0.0" translateX="-88.0" translateY="-30.0" visible="false" width="785.0" />
+            <Text fx:id="coverText" fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="AUTONOMOUS CONFIRMED " translateX="-70.0" translateY="-15.0" visible="false">
+               <font>
+                  <Font name="Noto Mono" size="59.0" />
+               </font>
+            </Text>
          </children>
       </StackPane>
       <StackPane prefHeight="150.0" prefWidth="200.0">
          <children>
-            <GridPane>
+            <GridPane prefHeight="62.0" prefWidth="798.0" translateY="-38.0">
               <columnConstraints>
-                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="736.0" minWidth="10.0" prefWidth="216.0" />
-                <ColumnConstraints hgrow="SOMETIMES" maxWidth="736.0" minWidth="10.0" prefWidth="289.0" />
-                <ColumnConstraints hgrow="SOMETIMES" maxWidth="435.0" minWidth="10.0" prefWidth="247.0" />
-                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="435.0" minWidth="10.0" prefWidth="195.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="736.0" minWidth="10.0" prefWidth="121.0" />
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="736.0" minWidth="10.0" prefWidth="228.0" />
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="489.0" minWidth="10.0" prefWidth="489.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="435.0" minWidth="10.0" prefWidth="72.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="435.0" minWidth="10.0" prefWidth="76.0" />
               </columnConstraints>
               <rowConstraints>
                 <RowConstraints maxHeight="14.0" minHeight="0.0" prefHeight="0.0" vgrow="SOMETIMES" />
-                <RowConstraints maxHeight="48.0" minHeight="4.0" prefHeight="32.0" vgrow="SOMETIMES" />
-                <RowConstraints maxHeight="48.0" minHeight="0.0" prefHeight="16.0" vgrow="SOMETIMES" />
-                  <RowConstraints maxHeight="36.0" minHeight="0.0" prefHeight="8.0" vgrow="SOMETIMES" />
-                  <RowConstraints maxHeight="24.0" minHeight="0.0" prefHeight="0.0" vgrow="SOMETIMES" />
-                  <RowConstraints maxHeight="24.0" minHeight="0.0" prefHeight="0.0" vgrow="SOMETIMES" />
-                  <RowConstraints maxHeight="20.0" minHeight="8.0" prefHeight="8.0" vgrow="SOMETIMES" />
+                <RowConstraints maxHeight="48.0" minHeight="0.0" prefHeight="0.0" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="48.0" minHeight="0.0" prefHeight="0.0" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="48.0" minHeight="0.0" prefHeight="0.0" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="48.0" minHeight="0.0" prefHeight="15.0" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="48.0" minHeight="0.0" prefHeight="15.0" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="48.0" minHeight="0.0" prefHeight="15.0" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="48.0" minHeight="0.0" prefHeight="15.0" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="48.0" minHeight="0.0" prefHeight="0.0" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="48.0" minHeight="0.0" prefHeight="8.0" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="48.0" minHeight="0.0" prefHeight="15.0" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="48.0" minHeight="0.0" prefHeight="6.0" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="48.0" minHeight="0.0" prefHeight="0.0" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="48.0" minHeight="0.0" prefHeight="15.0" vgrow="SOMETIMES" />
               </rowConstraints>
                <children>
-                  <Button fx:id="startButton" cancelButton="true" mnemonicParsing="false" text="CLEAR ❌" textFill="#fc0000" GridPane.rowIndex="2" />
-                  <ChoiceBox nodeOrientation="LEFT_TO_RIGHT" prefWidth="150.0" GridPane.columnIndex="3" GridPane.halignment="RIGHT" GridPane.rowIndex="2" />
-                  <Button alignment="CENTER_RIGHT" mnemonicParsing="false" text="Confirm Selections ✅" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-                  <Slider fx:id="noteSlider" blockIncrement="1.0" majorTickUnit="1.0" max="8.0" minorTickCount="0" showTickLabels="true" showTickMarks="true" snapToTicks="true" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+                  <Slider fx:id="noteSlider" blockIncrement="1.0" majorTickUnit="1.0" max="8.0" min="1.0" minorTickCount="0" prefHeight="14.0" prefWidth="190.0" showTickLabels="true" showTickMarks="true" snapToTicks="true" GridPane.columnIndex="1" GridPane.rowIndex="7">
+                     <padding>
+                        <Insets left="2.0" />
+                     </padding>
+                  </Slider>
+                  <Label text="# of Notes (1-8):" GridPane.rowIndex="6">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                  </Label>
+                  <Button fx:id="confirmButton" alignment="CENTER_RIGHT" mnemonicParsing="false" text="✔" textFill="#26ff00" GridPane.columnIndex="3" GridPane.rowIndex="6" />
+                  <Button fx:id="clearButton" cancelButton="true" mnemonicParsing="false" prefHeight="25.0" prefWidth="35.0" text="❌" textFill="#fc0000" GridPane.columnIndex="4" GridPane.rowIndex="6" />
                </children>
             </GridPane>
+            <ComboBox fx:id="startingPosChooser" prefHeight="40.0" prefWidth="162.0" promptText="Starting Pos" translateX="-10.0" translateY="-40.0" />
+            <Button fx:id="startButton" mnemonicParsing="false" prefHeight="25.0" prefWidth="165.0" text="Start Note Selection" translateX="210.0" translateY="-40.0" />
          </children>
       </StackPane>
-      <TableView fx:id="noteTbl" prefHeight="200.0" prefWidth="200.0">
-        <columns>
-          <TableColumn fx:id="noteNum" prefWidth="75.0" text="Note #" />
-          <TableColumn fx:id="noteSelec" prefWidth="807.0" text="Note Selected" />
-        </columns>
-      </TableView>
    </children>
 </VBox>

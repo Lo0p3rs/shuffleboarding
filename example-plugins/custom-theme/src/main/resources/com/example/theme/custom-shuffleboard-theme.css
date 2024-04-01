@@ -11,7 +11,7 @@
 @import "/edu/wpi/first/shuffleboard/app/midnight.css";
 
 .root {
-    -swatch-100: #ff0000;
+    -swatch-100: #ff7b00;
     -swatch-200: derive(-swatch-100, -5%);
     -swatch-300: derive(-swatch-100, -12%);
     -swatch-400: derive(-swatch-100, -16%);

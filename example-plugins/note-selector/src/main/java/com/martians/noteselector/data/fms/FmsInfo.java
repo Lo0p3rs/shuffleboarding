@@ -1,4 +1,4 @@
-package edu.wpi.first.shuffleboard.plugin.base.data.fms;
+package com.martians.noteselector.data.fms;
 
 import edu.wpi.first.shuffleboard.api.data.ComplexData;
 import edu.wpi.first.shuffleboard.api.util.Maps;
