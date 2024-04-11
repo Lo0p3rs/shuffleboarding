@@ -13,6 +13,17 @@ import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;  
 import java.io.IOException;
+
+import edu.wpi.first.networktables.DoubleArrayPublisher;
+import edu.wpi.first.networktables.DoubleArrayTopic;
+import edu.wpi.first.networktables.NetworkTable;
+import edu.wpi.first.networktables.NetworkTableInstance;
+import edu.wpi.first.networktables.PubSubOption;
+import edu.wpi.first.networktables.PubSubOptions;
+import edu.wpi.first.networktables.StringArrayPublisher;
+import edu.wpi.first.networktables.StringArrayTopic;
+import edu.wpi.first.networktables.StringPublisher;
+import edu.wpi.first.networktables.StringTopic;
 import edu.wpi.first.shuffleboard.api.widget.Description;
 import edu.wpi.first.shuffleboard.api.widget.ParametrizedController;
 import edu.wpi.first.shuffleboard.api.widget.SimpleAnnotatedWidget;
@@ -78,6 +89,13 @@ public final class NoteSelector extends SimpleAnnotatedWidget<FmsInfo> {
 
   public int startingPos;
 
+  
+  StringArrayPublisher strPub;
+  StringPublisher startingPosition;
+  public NetworkTableInstance inst = NetworkTableInstance.getDefault();
+  public NetworkTable noteTable = inst.getTable("noteTable");
+  public StringArrayTopic strtopic;
+
 
   @FXML
   private void initialize(){
@@ -131,16 +149,16 @@ public final class NoteSelector extends SimpleAnnotatedWidget<FmsInfo> {
       confirmButton.setDisable(true);
       startingPosChooser.setDisable(false);
       removeButtonState(startButton);
-      File noteFile = new File("C:\\note-selector\\notes.txt"); 
+      /*File noteFile = new File("C:\\note-selector\\notes.txt"); 
       if (noteFile.delete()) { 
         System.out.println("Deleted the file: " + noteFile.getName());
       } else {
         System.out.println("Failed to delete the file.");
-      }
+      }*/
     });
 
     startButton.setOnAction(event -> {
-      arrayLimit = (int) noteSlider.getValue();
+      arrayLimit = (int) noteSlider.getValue() + 1;
       noteSlider.setDisable(true);
       finalNotes = new String[arrayLimit];
       arrayVal = 0;
@@ -160,7 +178,10 @@ public final class NoteSelector extends SimpleAnnotatedWidget<FmsInfo> {
       removeButtonState(f3nButton);
       removeButtonState(f4nButton);
       removeButtonState(f5nButton); 
-      File noteFile = new File("C:\\note-selector\\notes.txt"); 
+      startNT();
+      finalNotes[arrayVal] = startingPosesArray[startingPos];
+      arrayVal += 1;
+      /*File noteFile = new File("C:\\note-selector\\notes.txt"); 
       if (noteFile.delete()) { 
         System.out.println("Deleted the file: " + noteFile.getName());
       } else {
@@ -182,7 +203,7 @@ public final class NoteSelector extends SimpleAnnotatedWidget<FmsInfo> {
     } catch (IOException e) {
         System.out.println("An error occurred with the creation of the file.");
         e.printStackTrace();
-      }
+      }*/
       
     });
 
@@ -191,13 +212,14 @@ public final class NoteSelector extends SimpleAnnotatedWidget<FmsInfo> {
       coverText.setVisible(true);
       disableAllNoteButtons();
       confirmButton.setDisable(true);
-      //System.out.println(Arrays.toString(finalNotes));
-      try {
+      System.out.println(Arrays.toString(finalNotes));
+      publishVals(finalNotes);
+      /*try {
         writeArray("C:\\note-selector\\notes.txt", finalNotes, startingPosesArray, startingPos);
       } catch (IOException e) {
         System.out.println("Write Failed");
         e.printStackTrace();
-      }
+      }*/
     });
 
     initializeButtons("Amp Note", anButton);
@@ -234,7 +256,7 @@ public final class NoteSelector extends SimpleAnnotatedWidget<FmsInfo> {
 
   public void initializeButtons(String noteName, Button button){
     button.setOnAction(event -> {
-      noteTbl.getItems().addAll(new Item(notes[arrayVal], noteName));
+      noteTbl.getItems().addAll(new Item(notes[arrayVal-1], noteName));
       //finalNotes[arrayVal] = noteName;
       finalNotes[arrayVal] = noteName;
      
@@ -287,8 +309,20 @@ public final class NoteSelector extends SimpleAnnotatedWidget<FmsInfo> {
 
 }
 
-public static void writeArray (String filename, String[] array, String[] startingPos, int x) throws IOException{
-  BufferedWriter outputWriter = null;
+public void startNT (){
+  strtopic = noteTable.getStringArrayTopic("AutoNotes");
+  strPub = strtopic.publish(PubSubOption.keepDuplicates(false));
+  System.out.println("NT Started");
+}
+
+public void publishVals(String[] notePath){
+      strPub.set(notePath);
+      strPub.close();
+      System.out.println("Published");
+}
+
+public static void writeArray (String[] array, String[] startingPos, int x){
+  /*BufferedWriter outputWriter = null;
   outputWriter = new BufferedWriter(new FileWriter(filename));
   outputWriter.write(startingPos[x]);
   outputWriter.newLine();
@@ -297,7 +331,7 @@ public static void writeArray (String filename, String[] array, String[] startin
     outputWriter.newLine();
   }
   outputWriter.flush();  
-  outputWriter.close();  
+  outputWriter.close();  */
 }
 
 

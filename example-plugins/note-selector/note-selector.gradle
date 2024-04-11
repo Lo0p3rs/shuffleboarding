@@ -14,6 +14,7 @@ dependencies {
     implementation "edu.wpi.first.shuffleboard:api:+"
     //implementation "edu.wpi.first.shuffleboard:plugins:"
     compileOnly project(":api")
+    api project(":plugins:networktables")
 }
 
 tasks.register("installPlugin", Copy) {
