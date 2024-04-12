@@ -183,7 +183,8 @@ public final class NoteSelector extends SimpleAnnotatedWidget<FmsInfo> {
       removeButtonState(f5nButton); 
       startNT();
       finalNotes[arrayVal] = startingPosesArray[startingPos];
-      noteTbl.getItems().addAll(new Item("Preload", finalNotes[arrayVal].toString()));
+      String[] preloadNames = new String[] {"Amp", "Speaker", "Source"};
+      noteTbl.getItems().addAll(new Item("Preload", preloadNames[startingPos]));
       arrayVal += 1;
       if(arrayVal > arrayLimit){
         disableAllNoteButtons();
