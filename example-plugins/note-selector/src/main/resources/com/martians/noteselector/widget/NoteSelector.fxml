@@ -97,17 +97,17 @@
                   <RowConstraints maxHeight="48.0" minHeight="0.0" prefHeight="15.0" vgrow="SOMETIMES" />
               </rowConstraints>
                <children>
-                  <Slider fx:id="noteSlider" blockIncrement="1.0" majorTickUnit="1.0" max="8.0" min="1.0" minorTickCount="0" prefHeight="14.0" prefWidth="190.0" showTickLabels="true" showTickMarks="true" snapToTicks="true" GridPane.columnIndex="1" GridPane.rowIndex="7">
+                  <Slider fx:id="noteSlider" blockIncrement="1.0" majorTickUnit="1.0" max="9.0" min="1.0" minorTickCount="0" prefHeight="14.0" prefWidth="190.0" showTickLabels="true" showTickMarks="true" snapToTicks="true" GridPane.columnIndex="1" GridPane.rowIndex="7">
                      <padding>
                         <Insets left="2.0" />
                      </padding>
                   </Slider>
-                  <Label text="# of Notes (1-8):" GridPane.rowIndex="6">
+                  <Label text="# of Notes (1-9):" GridPane.rowIndex="6">
                      <font>
                         <Font name="System Bold" size="12.0" />
                      </font>
                   </Label>
-                  <Button fx:id="confirmButton" alignment="CENTER_RIGHT" mnemonicParsing="false" text="✔" textFill="#26ff00" GridPane.columnIndex="3" GridPane.rowIndex="6" />
+                  <Button fx:id="confirmButton" alignment="CENTER_RIGHT" disable="true" mnemonicParsing="false" text="✔" textFill="#26ff00" GridPane.columnIndex="3" GridPane.rowIndex="6" />
                   <Button fx:id="clearButton" cancelButton="true" mnemonicParsing="false" prefHeight="25.0" prefWidth="35.0" text="❌" textFill="#fc0000" GridPane.columnIndex="4" GridPane.rowIndex="6" />
                </children>
             </GridPane>
@@ -117,5 +117,3 @@
       </StackPane>
    </children>
 </VBox>
-
-

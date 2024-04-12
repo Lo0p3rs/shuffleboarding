@@ -101,6 +101,9 @@ public final class NoteSelector extends SimpleAnnotatedWidget<FmsInfo> {
   public StringArrayTopic strtopic;
 
   @FXML
+  public Label connectLabel;
+
+  @FXML
   private void initialize(){
 
     startingPosChooser.setItems(startingPoses);
@@ -142,6 +145,7 @@ public final class NoteSelector extends SimpleAnnotatedWidget<FmsInfo> {
     noteNum.setCellValueFactory(cellData ->new SimpleStringProperty(cellData.getValue().getNoteNum()));
     noteSelec.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getNoteSelec()));
 
+
     clearButton.setOnAction(event -> {
       arrayVal = 0;
       noteTbl.getItems().clear();
@@ -161,58 +165,38 @@ public final class NoteSelector extends SimpleAnnotatedWidget<FmsInfo> {
     });
 
     startButton.setOnAction(event -> {
-      arrayLimit = (int) noteSlider.getValue() - 1;
-      noteSlider.setDisable(true);
-      finalNotes = new String[arrayLimit+1];
-      arrayVal = 0;
-      startButton.setDisable(true);
-      confirmButton.setDisable(true);
-      coverPane.setVisible(false);
-      coverText.setVisible(false);  
-      startingPosChooser.setDisable(true);
-      removeButtonState(anButton);
-      removeButtonState(snButton);
-      removeButtonState(srnButton);
-      removeButtonState(anButtonR);
-      removeButtonState(snButtonR);
-      removeButtonState(srnButtonR);
-      removeButtonState(f1nButton);
-      removeButtonState(f2nButton);
-      removeButtonState(f3nButton);
-      removeButtonState(f4nButton);
-      removeButtonState(f5nButton); 
-      startNT();
-      finalNotes[arrayVal] = startingPosesArray[startingPos];
-      String[] preloadNames = new String[] {"Amp", "Speaker", "Source"};
-      noteTbl.getItems().addAll(new Item("Preload", preloadNames[startingPos]));
-      arrayVal += 1;
-      if(arrayVal > arrayLimit){
-        disableAllNoteButtons();
-        confirmButton.setDisable(false);
-    }
-      /*File noteFile = new File("C:\\note-selector\\notes.txt"); 
-      if (noteFile.delete()) { 
-        System.out.println("Deleted the file: " + noteFile.getName());
-      } else {
-        System.out.println("Failed to delete the file");
+      if(inst.isConnected() == true){      
+        arrayLimit = (int) noteSlider.getValue() - 1;
+        noteSlider.setDisable(true);
+        finalNotes = new String[arrayLimit+1];
+        arrayVal = 0;
+        startButton.setDisable(true);
+        confirmButton.setDisable(true);
+        coverPane.setVisible(false);
+        coverText.setVisible(false);  
+        startingPosChooser.setDisable(true);
+        removeButtonState(anButton);
+        removeButtonState(snButton);
+        removeButtonState(srnButton);
+        removeButtonState(anButtonR);
+        removeButtonState(snButtonR);
+        removeButtonState(srnButtonR);
+        removeButtonState(f1nButton);
+        removeButtonState(f2nButton);
+        removeButtonState(f3nButton);
+        removeButtonState(f4nButton);
+        removeButtonState(f5nButton); 
+        startNT();
+        finalNotes[arrayVal] = startingPosesArray[startingPos];
+        String[] preloadNames = new String[] {"Amp", "Speaker", "Source"};
+        noteTbl.getItems().addAll(new Item("Preload", preloadNames[startingPos]));
+        arrayVal += 1;
+        if(arrayVal > arrayLimit){
+          disableAllNoteButtons();
+          confirmButton.setDisable(false);
+      }} else{
+        System.out.println("NT Not Connected");
       }
-      File noteDir = new File("C:\\note-selector");
-      if(noteDir.mkdirs()){
-        System.out.println("Directory was successfully made");
-      } else {
-        System.out.println("An error occured when creating the directory");
-      }
-      try {
-      //File noteFile = new File("C:\\note-selector\\notes.txt");
-      if (noteFile.createNewFile()) {
-        System.out.println("File created: " + noteFile.getName());
-      } else {
-        System.out.println("File already exists.");
-      }
-    } catch (IOException e) {
-        System.out.println("An error occurred with the creation of the file.");
-        e.printStackTrace();
-      }*/
       
     });
 

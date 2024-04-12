@@ -11,6 +11,7 @@ repositories {
 }
 
 dependencies {
+    implementation "edu.wpi.first.shuffleboard:api:+"
     compileOnly project(":api")
 }
 
