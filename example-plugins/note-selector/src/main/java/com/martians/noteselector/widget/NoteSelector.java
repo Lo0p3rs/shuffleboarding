@@ -2,6 +2,8 @@ package com.martians.noteselector.widget;
 
 import java.util.Arrays;
 import java.util.Objects;
+import java.util.Timer;
+import java.util.TimerTask;
 import java.util.concurrent.Callable;
 
 import javax.swing.JComboBox;
@@ -13,6 +15,7 @@ import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;  
 import java.io.IOException;
+import java.util.concurrent.TimeUnit;
 
 import edu.wpi.first.networktables.DoubleArrayPublisher;
 import edu.wpi.first.networktables.DoubleArrayTopic;
@@ -36,6 +39,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
+import javafx.scene.control.ProgressIndicator;
 import javafx.scene.control.Slider;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
@@ -95,7 +99,6 @@ public final class NoteSelector extends SimpleAnnotatedWidget<FmsInfo> {
   public NetworkTableInstance inst = NetworkTableInstance.getDefault();
   public NetworkTable noteTable = inst.getTable("noteTable");
   public StringArrayTopic strtopic;
-
 
   @FXML
   private void initialize(){
@@ -158,9 +161,9 @@ public final class NoteSelector extends SimpleAnnotatedWidget<FmsInfo> {
     });
 
     startButton.setOnAction(event -> {
-      arrayLimit = (int) noteSlider.getValue() + 1;
+      arrayLimit = (int) noteSlider.getValue() - 1;
       noteSlider.setDisable(true);
-      finalNotes = new String[arrayLimit];
+      finalNotes = new String[arrayLimit+1];
       arrayVal = 0;
       startButton.setDisable(true);
       confirmButton.setDisable(true);
@@ -180,7 +183,12 @@ public final class NoteSelector extends SimpleAnnotatedWidget<FmsInfo> {
       removeButtonState(f5nButton); 
       startNT();
       finalNotes[arrayVal] = startingPosesArray[startingPos];
+      noteTbl.getItems().addAll(new Item("Preload", finalNotes[arrayVal].toString()));
       arrayVal += 1;
+      if(arrayVal > arrayLimit){
+        disableAllNoteButtons();
+        confirmButton.setDisable(false);
+    }
       /*File noteFile = new File("C:\\note-selector\\notes.txt"); 
       if (noteFile.delete()) { 
         System.out.println("Deleted the file: " + noteFile.getName());
@@ -263,7 +271,7 @@ public final class NoteSelector extends SimpleAnnotatedWidget<FmsInfo> {
       arrayVal += 1;
       button.setDisable(true);
       
-      if(arrayVal == arrayLimit){
+      if(arrayVal > arrayLimit){
           disableAllNoteButtons();
           confirmButton.setDisable(false);
       }
@@ -320,6 +328,7 @@ public void publishVals(String[] notePath){
       strPub.close();
       System.out.println("Published");
 }
+
 
 public static void writeArray (String[] array, String[] startingPos, int x){
   /*BufferedWriter outputWriter = null;
