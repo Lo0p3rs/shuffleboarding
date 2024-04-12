@@ -16,7 +16,7 @@ import edu.wpi.first.shuffleboard.api.plugin.Requires;
 @Description(
     group = "com.martians",
     name = "NoteSelector",
-    version = "1.0",
+    version = "2024.3.1",
     summary = "A plugin that allows you to select notes for autonomous"
 )
 
