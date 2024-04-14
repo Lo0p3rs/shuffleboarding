@@ -94,11 +94,8 @@ public final class NoteSelector extends SimpleAnnotatedWidget<FmsInfo> {
   public int startingPos;
 
   
-  StringArrayPublisher strPub;
-  StringPublisher startingPosition;
-  public NetworkTableInstance inst = NetworkTableInstance.getDefault();
-  public NetworkTable noteTable = inst.getTable("noteTable");
-  public StringArrayTopic strtopic;
+  
+  //StringPublisher startingPosition
 
   @FXML
   public Label connectLabel;
@@ -303,15 +300,18 @@ public final class NoteSelector extends SimpleAnnotatedWidget<FmsInfo> {
 }
 
 public void startNT (){
-  strtopic = noteTable.getStringArrayTopic("AutoNotes");
-  strPub = strtopic.publish(PubSubOption.keepDuplicates(false));
-  System.out.println("NT Started");
+  System.out.println("Im a useless function");
 }
 
 public void publishVals(String[] notePath){
-      strPub.set(notePath);
-      strPub.close();
-      System.out.println("Published");
+  NetworkTableInstance inst = NetworkTableInstance.getDefault();
+  NetworkTable noteTable = inst.getTable("NoteTable");
+  StringArrayTopic strtopic = noteTable.getStringArrayTopic("AutoNotes");
+  StringArrayPublisher strPub = strtopic.publish(PubSubOption.keepDuplicates(false));
+  strPub.set(notePath);
+  strPub.close();
+  inst.close();
+  System.out.println("Published NT Values");
 }
 
 
