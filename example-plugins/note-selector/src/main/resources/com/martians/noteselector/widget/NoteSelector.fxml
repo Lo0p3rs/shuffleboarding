@@ -56,11 +56,11 @@
             <Button fx:id="anButton" disable="true" mnemonicParsing="false" text="Amp Note" translateX="-380.0" translateY="-153.0" />
             <Button fx:id="srnButton" disable="true" layoutX="427.0" layoutY="218.0" mnemonicParsing="false" text="Source Note" translateX="-380.0" translateY="-28.0" />
             <Button fx:id="snButton" disable="true" layoutX="427.0" layoutY="218.0" mnemonicParsing="false" text="Speaker Note" translateX="-235.0" translateY="-88.0" />
-            <Button fx:id="f1nButton" disable="true" layoutX="416.0" layoutY="218.0" mnemonicParsing="false" text="Far 1 Note" translateX="-15.0" translateY="-170.0" />
-            <Button fx:id="f2nButton" disable="true" layoutX="416.0" layoutY="218.0" mnemonicParsing="false" text="Far 2 Note" translateX="-15.0" translateY="-100.0" />
+            <Button fx:id="f5nButton" disable="true" layoutX="416.0" layoutY="218.0" mnemonicParsing="false" text="Far 5 Note" translateX="-15.0" translateY="-170.0" />
+            <Button fx:id="f4nButton" disable="true" layoutX="416.0" layoutY="218.0" mnemonicParsing="false" text="Far 4 Note" translateX="-15.0" translateY="-100.0" />
             <Button fx:id="f3nButton" disable="true" layoutX="416.0" layoutY="218.0" mnemonicParsing="false" text="Far 3 Note" translateX="-15.0" translateY="-28.0" />
-            <Button fx:id="f4nButton" disable="true" layoutX="416.0" layoutY="218.0" mnemonicParsing="false" text="Far 4 Note" translateX="-15.0" translateY="43.0" />
-            <Button fx:id="f5nButton" disable="true" layoutX="416.0" layoutY="218.0" mnemonicParsing="false" text="Far 5 Note" translateX="-15.0" translateY="115.0" />
+            <Button fx:id="f2nButton" disable="true" layoutX="416.0" layoutY="218.0" mnemonicParsing="false" text="Far 2 Note" translateX="-15.0" translateY="43.0" />
+            <Button fx:id="f1nButton" disable="true" layoutX="416.0" layoutY="218.0" mnemonicParsing="false" text="Far 1 Note" translateX="-15.0" translateY="115.0" />
             <Rectangle arcHeight="5.0" arcWidth="5.0" height="444.0" opacity="0.84" stroke="BLACK" strokeType="INSIDE" visible="false" width="885.0" />
             <Rectangle fx:id="coverPane" arcHeight="5.0" arcWidth="5.0" height="393.0" opacity="0.77" stroke="BLACK" strokeType="OUTSIDE" strokeWidth="0.0" translateX="-88.0" translateY="-30.0" visible="false" width="785.0" />
             <Text fx:id="coverText" fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="AUTONOMOUS CONFIRMED " translateX="-70.0" translateY="-15.0" visible="false">
