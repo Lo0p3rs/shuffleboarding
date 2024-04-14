@@ -93,7 +93,7 @@ public final class NoteSelector extends SimpleAnnotatedWidget<FmsInfo> {
 
   public int startingPos;
 
-  
+  public NetworkTableInstance inst2 = NetworkTableInstance.getDefault();
   
   //StringPublisher startingPosition
 
@@ -162,7 +162,7 @@ public final class NoteSelector extends SimpleAnnotatedWidget<FmsInfo> {
     });
 
     startButton.setOnAction(event -> {
-      if(inst.isConnected() == true){      
+      if(inst2.isConnected() == true){      
         arrayLimit = (int) noteSlider.getValue() - 1;
         noteSlider.setDisable(true);
         finalNotes = new String[arrayLimit+1];
