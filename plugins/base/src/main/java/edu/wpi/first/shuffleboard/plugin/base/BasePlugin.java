@@ -44,12 +44,8 @@ import edu.wpi.first.shuffleboard.plugin.base.layout.GridLayoutSaver;
 import edu.wpi.first.shuffleboard.plugin.base.layout.ListLayout;
 import edu.wpi.first.shuffleboard.plugin.base.layout.SubsystemLayout;
 import edu.wpi.first.shuffleboard.plugin.base.widget.AccelerometerWidget;
-<<<<<<< HEAD
-//import edu.wpi.first.shuffleboard.plugin.base.widget.BasicFmsInfoWidget;
-=======
 import edu.wpi.first.shuffleboard.plugin.base.widget.AlertsWidget;
-import edu.wpi.first.shuffleboard.plugin.base.widget.BasicFmsInfoWidget;
->>>>>>> cb7048a1bc4e8b964c6f633ad9a1b3a2fcb79633
+//import edu.wpi.first.shuffleboard.plugin.base.widget.BasicFmsInfoWidget;
 import edu.wpi.first.shuffleboard.plugin.base.widget.BasicSubsystemWidget;
 import edu.wpi.first.shuffleboard.plugin.base.widget.BooleanBoxWidget;
 import edu.wpi.first.shuffleboard.plugin.base.widget.ComboBoxChooserWidget;

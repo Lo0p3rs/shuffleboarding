@@ -55,9 +55,6 @@
                   </TableView>
                </children>
             </GridPane>
-            <Button fx:id="anButtonR" disable="true" mnemonicParsing="false" text="Amp Note" translateX="210.0" translateY="-152.0" />
-            <Button fx:id="snButtonR" disable="true" mnemonicParsing="false" text="Speaker Note" translateX="75.0" translateY="-90.0" />
-            <Button fx:id="srnButtonR" disable="true" mnemonicParsing="false" text="Source Note" translateX="210.0" translateY="-28.0" />
             <Button fx:id="anButton" disable="true" mnemonicParsing="false" text="Amp Note" translateX="-380.0" translateY="-153.0" />
             <Button fx:id="srnButton" disable="true" layoutX="427.0" layoutY="218.0" mnemonicParsing="false" text="Source Note" translateX="-380.0" translateY="-28.0" />
             <Button fx:id="snButton" disable="true" layoutX="427.0" layoutY="218.0" mnemonicParsing="false" text="Speaker Note" translateX="-235.0" translateY="-88.0" />
