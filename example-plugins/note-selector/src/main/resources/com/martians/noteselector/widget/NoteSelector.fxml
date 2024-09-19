@@ -30,6 +30,11 @@
                         <Image url="@2024-field.png" />
                      </image>
                   </ImageView>
+                  <Label fx:id="fmsLabel" text="FMS NOT CONNECTED" textFill="RED">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                  </Label>
                </children>
             </VBox>
             <GridPane prefHeight="174.0" prefWidth="950.0">
